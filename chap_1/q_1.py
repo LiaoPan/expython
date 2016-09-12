@@ -1,5 +1,5 @@
 # OOP Geometry Demo
-
+import math
 class Point():
     x = 0.0
     y = 0.0
@@ -36,6 +36,12 @@ class Circle(Point):
     def ToString(self):
         return super().ToString() + \
                ",{RADIUS=" + str(self.radius) + "}"
+               
+               
+    #author:L.P
+    def CalcCircum(self):
+        return "Circum area is "+str(2*math.pi*self.radius)
+               
 
 class Rectangle(Point,Size):
     def __init__(self, x, y, width, height):
@@ -44,7 +50,17 @@ class Rectangle(Point,Size):
         print("Rectangle constructor")
 
     def ToString(self):
+        print("@@@@"+Point.ToString(self))
         return Point.ToString(self) + "," + Size.ToString(self)
+        
+        
+    #author:L.P
+    def CalcArea(self):
+        print(self.height)
+        print("!!!width"+str(Size.width))
+        print("@@@@"+Point.ToString(self))
+        print("@@@@"+Size.ToString(self))
+        return "Rectangle area is "+str(self.width*self.height)
         
         
 #author:L.P
@@ -69,10 +85,15 @@ print(s.ToString())
 
 c = Circle(100,100,50)
 print(c.ToString())
+print(c.CalcCircum())
 
+print("\n")
 r = Rectangle(200,250,40,50)
 print(r.ToString())
+print(r.CalcArea())
+
 
 print("\n")
 e = Ellipse(20,30,222,444)
 print(e.ToString())
+
